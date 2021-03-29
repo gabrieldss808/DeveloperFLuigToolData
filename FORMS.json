@@ -31,7 +31,8 @@
         "title": "Fields1",
         "Description": "Gera campos em sequencia, o tamanho dos campos será definido por padrão em col-md-2.",
         "Parameters": [
-            { "Name": "NOMECAMPOS", "Description": "Nome dos Campos separados por virgula." }
+            { "Name": "NOMECAMPOS", "Description": "Nome dos Campos separados por virgula." },
+            { "Name": "NOMECAMPOSDESCRI", "Description": "Descrição dos Campos separados por virgula." }
         ],
         "CODE": {
             "Type": "LOOPINPARAMETERS",
@@ -47,7 +48,7 @@
             "CodeToAddParameter": {
                 "Parameters": ["NOMECAMPOS"],
                 "ParameterType": "SPLITVIRGULA",
-                "Code": "<div class=ASPAScol-md-2 ASPAS>\n    <label class=ASPAScontrol-labelASPAS>{NOMECAMPOS}:</label>\n    <input type=ASPAStextASPAS class=ASPASform-control input-smASPAS id=ASPAS{NOMECAMPOS}ASPAS name=ASPAS{NOMECAMPOS}ASPAS/>   \t\t\n</div>"
+                "Code": "<div class=ASPAScol-md-2 ASPAS>\n    <label class=ASPAScontrol-labelASPAS>{NOMECAMPOSDESCRI}:</label>\n    <input type=ASPAStextASPAS class=ASPASform-control input-smASPAS id=ASPAS{NOMECAMPOS}ASPAS name=ASPAS{NOMECAMPOS}ASPAS/>   \t\t\n</div>"
             }
         }
     }
