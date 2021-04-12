@@ -2,27 +2,28 @@
     "COMP1": {
         "title": "Table1",
         "Description": "Tabela Com Colunas Variaveis, o tamanho dos campos será definido por padrão em col-md-2.",
-        "Parameters": [
-
-            { "Name": "TABLENAME", "Description": "Nome da Tabela, usado na definição das classes." },
-            { "Name": "NOMECAMPOS", "Description": "Nome dos Campos da Tabela separados por virgula." }
-
-        ],
         "CODE": {
-            "Type": "LOOPINPARAMETERS",
-            "PreCode": {
+            "1": {
                 "CodeText": "<div class=ASPASrowASPAS>\n    <div class=ASPAScol-md-2ASPAS id=ASPASbotaoAdicionarASPAS>\n        <button type=ASPASbuttonASPAS class=ASPASbtn btn-primaryASPAS onclick=ASPASadicionarItem{TABLENAME}()ASPAS>Adicionar</button>\n    </div>\n</div>\n</br>\n<div class=ASPASrowASPAS>\n    <div class=ASPAStable-responsiveASPAS>\n        <table class=ASPAStable table-striped table-hover table-condensedASPAS id=ASPASitens{TABLENAME}ASPAS tablename=ASPASitens{TABLENAME}ASPAS noaddbutton=ASPAStrueASPAS nodeletebutton=ASPAStrueASPAS>\n            <thead>\n                <tr class=ASPASfs-display-noneASPAS>\n                    <th></th>\n                    <th></th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr detail=ASPAStrueASPAS detailname=ASPASVIEW_ITEMASPAS class=ASPASfw-table-tr itensTabela{TABLENAME}ASPAS>\n                    <td id=ASPAStdFieldsASPAS class=ASPASfw-table-td fs-full-widthASPAS>\n                        <div class=ASPASrowASPAS>\n                            <div class=ASPASform-group col-md-2ASPAS data-fluig-state-hide=ASPAS5,20ASPAS style=ASPASwidth:40px !important;ASPAS>\n                                <label class=ASPAScontrol-labelASPAS style=ASPAScolor: white;ASPAS>Trash</label>\n                                <span class=ASPASfluigicon fluigicon-trash icon-mdASPAS style=ASPAScursor:pointer;ASPAS onclick=ASPASremoverItem{TABLENAME}(this)ASPAS>\n                                </span>\n                            </div>",
-                "Parameters": ["TABLENAME"],
-                "ParameterType": "NOTREAT"
+                "Parameters": [
+                    { "Name": "TABLENAME", "Description": "Qual é o nome da Tabela?" }
+                ],
+                "ParameterType": "NOTREAT",
+                "questions": [
+                    { "questionText": "", "Code": "", "Name": "" }
+                ]
             },
-            "PosCode": {
+            "2": {
                 "CodeText": "                        </div> \n                    </td>    \n                </tr> \n            </tbody> \n        </table> \n    </div> \n</div>",
-                "Parameters": []
+                "Parameters": [],
+                "ParameterType": "NO"
             },
-            "CodeToAddParameter": {
-                "Parameters": ["NOMECAMPOS"],
-                "ParameterType": "SPLITVIRGULA",
-                "Code": "                            <div class=ASPASform-group col-md-2ASPAS>\n                                <label class=ASPAScontrol-labelASPAS >{NOMECAMPOS}</label> \n                                <input type=ASPAStextASPAS id=ASPAS{NOMECAMPOS}ASPAS name=ASPAS{NOMECAMPOS}ASPAS class=ASPASform-controlASPAS>\n                            </div>"
+            "3": {
+                "CodeText": "                            <div class=ASPASform-group col-md-2ASPAS>\n                                <label class=ASPAScontrol-labelASPAS >{NOMECAMPOS}</label> \n                                <input type=ASPAStextASPAS id=ASPAS{NOMECAMPOS}ASPAS name=ASPAS{NOMECAMPOS}ASPAS class=ASPASform-controlASPAS>\n                            </div>",
+                "Parameters": [
+                    { "Name": "NOMECAMPOS", "Description": "Nome dos Campos da Tabela separados por virgula." }
+                ],
+                "ParameterType": "SPLITVIRGULA"
             }
         }
     },
@@ -46,7 +47,7 @@
                 "Parameters": []
             },
             "CodeToAddParameter": {
-                "Parameters": ["NOMECAMPOS","NOMECAMPOSDESCRI"],
+                "Parameters": ["NOMECAMPOS", "NOMECAMPOSDESCRI"],
                 "ParameterType": "SPLITVIRGULA",
                 "Code": "<div class=ASPAScol-md-2 ASPAS>\n    <label class=ASPAScontrol-labelASPAS>{NOMECAMPOSDESCRI}:</label>\n    <input type=ASPAStextASPAS class=ASPASform-control input-smASPAS id=ASPAS{NOMECAMPOS}ASPAS name=ASPAS{NOMECAMPOS}ASPAS/>   \t\t\n</div>"
             }
