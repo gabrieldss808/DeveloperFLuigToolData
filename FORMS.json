@@ -67,7 +67,7 @@
                 "Parameters": [
                     { "Name": "TABLENAME", "Description": "Digite o Nome da Tabela: " }
                 ],
-                "ParameterType": "NO",
+                "ParameterType": "NOTREAT",
                 "questions": []
             }
         }
