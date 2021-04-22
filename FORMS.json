@@ -71,6 +71,24 @@
                 "questions": []
             }
         }
+    },
+    "COMP4": {
+        "title": "Campo Zoom",
+        "Description": "Campo Zoom com o HTML e exemplo de codigo em javascript",
+        "Message": "No Inicio do Arquivo terá as funções em JavaScript para usar como Exemplo para poder adicionar as linhas e também remover elas.",
+        "CODE": {
+            "1": {
+                "CodeText": "function adicionarItem() CHAVESIN\n\tvar newrow = $(ASPAS<tr>ASPAS);\n\n\tvar qtde = $(ASPAS#qtdeItensASPAS).val();\n    qtde++;\n    $(ASPAS#qtdeItensASPAS).val(qtde);\n    \n    var linha = qtde;\n    \n    var cols = ASPAS<td id=ASPAStdFieldsASPAS class=ASPASfw-table-td fs-full-widthASPAS> <div class=ASPASrowASPAS> <div class=ASPASform-group col-md-2ASPAS data-fluig-state-hide=ASPAS5,20ASPAS style=ASPASwidth:40px !important;ASPAS> <label class=ASPAScontrol-labelASPAS style=ASPAScolor: white;ASPAS>Trash</label> <span class=ASPASfluigicon fluigicon-trash icon-mdASPAS style=ASPAScursor:pointer;ASPAS onclick=ASPASremoverItem(this)ASPAS> </span> </div>",
+                "Parameters": [
+                    { "Name": "NOMECAMPO", "Description": "Digite o Nome do Campo: " },
+                    { "Name": "NOMEDATASET", "Description": "Digite o Nome do DataSet que será usado pelo Zoom: " },
+                    { "Name": "CAMPOSEXIBICAO", "Description": "Digite os Campos de Exibição no Padrão Zoom: " },
+                    { "Name": "CAMPOSRETORNO", "Description": "Digite os Campos de Retorno no Padrão Zoom: " },
+                    { "Name": "TITULO", "Description": "Titulo Do Zoom: " }
+                ],
+                "ParameterType": "NOTREAT",
+                "questions": []
+            }
+        }
     }
-
 }
