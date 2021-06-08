@@ -33,7 +33,7 @@
         "Description": "Gera campos em sequencia, o tamanho dos campos será definido por padrão em col-md-2.",
         "CODE": {
             "1": {
-                "CodeText": "<div class=ASPASQUESTAO1 ASPAS>\n    <label class=ASPAScontrol-labelASPAS>{NOMECAMPOSDESCRI}:</label>\n    <input type=ASPAStextASPAS class=ASPASform-control input-smASPAS id=ASPAS{NOMECAMPOS}ASPAS name=ASPAS{NOMECAMPOS}ASPAS QUESTAO1/>   \t\t\n</div>",
+                "CodeText": "<div class=ASPAS{QUESTAO1} ASPAS>\n    <label class=ASPAScontrol-labelASPAS>{NOMECAMPOSDESCRI}:</label>\n    <input type=ASPAStextASPAS class=ASPASform-control input-smASPAS id=ASPAS{NOMECAMPOS}ASPAS name=ASPAS{NOMECAMPOS}ASPAS {QUESTAO2}/>   \t\t\n</div>",
                 "Parameters": [
                     { "Name": "NOMECAMPOS", "Description": "Digite o Nome dos Campos separados por virgula: " },
                     { "Name": "NOMECAMPOSDESCRI", "Description": "Digite Descrição dos Campos separados por virgula: " }
@@ -41,14 +41,14 @@
                 "ParameterType": "SPLITVIRGULA",
                 "questions": {
                     "QUESTAO1": {
-                        "Pergunta": "Deseja adicionar a validação por etapa?",
-                        "SeSim": { "Type": "IMPUT", "Text": "Digite as atividades separadas por virgula: ", "Code": "data-fluig-state-valid=ASPAS", "CODEFINAL": "ASPAS" },
-                        "DEFAULTVALUE": ""
-                    },
-                    "QUESTAO2": {
                         "Pergunta": "Deseja alterar o Tamanho da coluna dos campos? Padrão: col-md-2",
                         "SeSim": { "Type": "IMPUT", "Text": "Digite o tamanho: ", "Code": "", "CODEFINAL": "" },
                         "DEFAULTVALUE": "col-md-2"
+                    },
+                    "QUESTAO2": {
+                        "Pergunta": "Deseja adicionar a validação por etapa?",
+                        "SeSim": { "Type": "IMPUT", "Text": "Digite as atividades separadas por virgula: ", "Code": "data-fluig-state-valid=ASPAS", "CODEFINAL": "ASPAS" },
+                        "DEFAULTVALUE": ""
                     }
                 }
             }
