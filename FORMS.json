@@ -39,12 +39,12 @@
                     { "Name": "NOMECAMPOSDESCRI", "Description": "Digite Descrição dos Campos separados por virgula: " }
                 ],
                 "ParameterType": "SPLITVIRGULA",
-                "questions": [{
+                "questions": {
                     "question1": {
                         "Pergunta": "Deseja adicionar a validação por etapa?",
                         "SeSim": { "Type": "IMPUT", "Text": "Digite as atividades separadas por virgula: ", "Code": "data-fluig-state-valid=ASPAS", "CODEFINAL": "ASPAS" }
                     }
-                }]
+                }
             }
         }
     },
