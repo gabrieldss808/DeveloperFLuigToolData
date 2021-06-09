@@ -13,12 +13,29 @@
                 "questions": {}
             },
             "2": {
-                "CodeText": "                            <div class=ASPASform-group col-md-2ASPAS>\n                                <label class=ASPAScontrol-labelASPAS >{NOMECAMPOS}</label> \n                                <input type=ASPAStextASPAS id=ASPAS{NOMECAMPOS}ASPAS name=ASPAS{NOMECAMPOS}ASPAS class=ASPASform-controlASPAS>\n                            </div>",
+                "CodeText": "<div class=ASPAS{QUESTAO1} ASPAS>\n    <label class=ASPAScontrol-labelASPAS>{NOMECAMPOSDESCRI}:</label>\n    <input type=ASPAStextASPAS class=ASPASform-control input-smASPAS id=ASPAS{NOMECAMPOS}ASPAS name=ASPAS{NOMECAMPOS}ASPAS {QUESTAO2}/>   \t\t\n</div>",
                 "Parameters": [
-                    { "Name": "NOMECAMPOS", "Description": "Digite o nome dos campos da Tabela separados por virgula: " }
+                    { "Name": "NOMECAMPOS", "Description": "Digite o Nome dos Campos separados por virgula: " },
+                    { "Name": "NOMECAMPOSDESCRI", "Description": "Digite Descrição dos Campos separados por virgula: " }
                 ],
                 "ParameterType": "SPLITVIRGULA",
-                "questions": {}
+                "questions": {
+                    "QUESTAO1": {
+                        "Pergunta": "Deseja alterar o Tamanho da coluna dos campos? Padrão: col-md-2",
+                        "SeSim": { "Type": "IMPUT", "Text": "Digite o tamanho: ", "Code": "", "CODEFINAL": "" },
+                        "DEFAULTVALUE": "col-md-2"
+                    },
+                    "QUESTAO2": {
+                        "Pergunta": "Deseja adicionar a validação por etapa?",
+                        "SeSim": { "Type": "IMPUT", "Text": "Digite as atividades separadas por virgula: ", "Code": "data-fluig-state-valid=ASPAS", "CODEFINAL": "ASPAS" },
+                        "DEFAULTVALUE": ""
+                    },
+                    "QUESTAO2_1": {
+                        "Pergunta": "Campos Obrigatórios?",
+                        "SeSim": { "Type": "NOTREAT", "Text": "", "Code": "data-fluig-required=ASPAStrueASPAS", "CODEFINAL": "" },
+                        "DEFAULTVALUE": ""
+                    }
+                }
             },
             "3": {
                 "CodeText": "                        </div> \n                    </td>    \n                </tr> \n            </tbody> \n        </table> \n    </div> \n</div>",
