@@ -1,5 +1,56 @@
 {
-    "COMP1": {
+    "1": {
+        "title": "Campos Comuns",
+        "Description": "Gera campos em sequencia seguindo o padrão utilizado na FSW Totvs IP.",
+        "Message": "Todas as opções estão no padrão da LIB do Fluig da Totvs IP.\nAltere o HTML de acordo com a sua necessidade.",
+        "CODE": {
+            "1": {
+                "CodeText": "<div class=ASPAS{QUESTAO1} ASPAS>\n    <label class=ASPAScontrol-labelASPAS>{NOMECAMPOSDESCRI}:</label>\n    <input type=ASPAStextASPAS class=ASPASform-control input-smASPAS id=ASPAS{NOMECAMPOS}ASPAS name=ASPAS{NOMECAMPOS}ASPAS {QUESTAO2}/>   \t\t\n</div>",
+                "Parameters": [
+                    { "Name": "NOMECAMPOS", "Description": "Digite o Nome dos Campos separados por virgula: " },
+                    { "Name": "NOMECAMPOSDESCRI", "Description": "Digite Descrição dos Campos separados por virgula: " }
+                ],
+                "ParameterType": "SPLITVIRGULA",
+                "questions": {
+                    "QUESTAO1": {
+                        "Pergunta": "Deseja alterar o Tamanho da coluna dos campos? Padrão: col-md-2",
+                        "SeSim": { "Type": "IMPUT", "Text": "Digite o tamanho: ", "Code": "", "CODEFINAL": "" },
+                        "DEFAULTVALUE": "col-md-2"
+                    },
+                    "QUESTAO2": {
+                        "Pergunta": "Deseja adicionar a validação por etapa?",
+                        "SeSim": { "Type": "IMPUT", "Text": "Digite as atividades separadas por virgula: ", "Code": "data-fluig-state-valid=ASPAS", "CODEFINAL": "ASPAS" },
+                        "DEFAULTVALUE": ""
+                    },
+                    "QUESTAO2_1": {
+                        "Pergunta": "Campos Obrigatórios?",
+                        "SeSim": { "Type": "NOTREAT", "Text": "", "Code": "data-fluig-required=ASPAStrueASPAS", "CODEFINAL": "" },
+                        "DEFAULTVALUE": ""
+                    }
+                }
+            }
+        }
+    },
+    "2": {
+        "title": "Campo Zoom",
+        "Description": "Campo Zoom com o HTML e exemplo de codigo em javascript",
+        "Message": "",
+        "CODE": {
+            "1": {
+                "CodeText": "function adicionarItem() CHAVESIN\n\tvar newrow = $(ASPAS<tr>ASPAS);\n\n\tvar qtde = $(ASPAS#qtdeItensASPAS).val();\n    qtde++;\n    $(ASPAS#qtdeItensASPAS).val(qtde);\n    \n    var linha = qtde;\n    \n    var cols = ASPAS<td id=ASPAStdFieldsASPAS class=ASPASfw-table-td fs-full-widthASPAS> <div class=ASPASrowASPAS> <div class=ASPASform-group col-md-2ASPAS data-fluig-state-hide=ASPAS5,20ASPAS style=ASPASwidth:40px !important;ASPAS> <label class=ASPAScontrol-labelASPAS style=ASPAScolor: white;ASPAS>Trash</label> <span class=ASPASfluigicon fluigicon-trash icon-mdASPAS style=ASPAScursor:pointer;ASPAS onclick=ASPASremoverItem(this)ASPAS> </span> </div>",
+                "Parameters": [
+                    { "Name": "NOMECAMPO", "Description": "Digite o Nome do Campo: " },
+                    { "Name": "NOMEDATASET", "Description": "Digite o Nome do DataSet que será usado pelo Zoom: " },
+                    { "Name": "CAMPOSEXIBICAO", "Description": "Digite os Campos de Exibição no Padrão Zoom: " },
+                    { "Name": "CAMPOSRETORNO", "Description": "Digite os Campos de Retorno no Padrão Zoom: " },
+                    { "Name": "TITULO", "Description": "Titulo Do Zoom: " }
+                ],
+                "ParameterType": "NOTREAT",
+                "questions": {}
+            }
+        }
+    },
+    "3": {
         "title": "Tabela 1",
         "Description": "Tabela Com Colunas Variaveis, o tamanho dos campos será definido por padrão em col-md-2.",
         "Message": "",
@@ -45,40 +96,7 @@
             }
         }
     },
-
-    "COMP2": {
-        "title": "Campos Comuns 1",
-        "Description": "Gera campos em sequencia, o tamanho dos campos será definido por padrão em col-md-2.",
-        "Message": "",
-        "CODE": {
-            "1": {
-                "CodeText": "<div class=ASPAS{QUESTAO1} ASPAS>\n    <label class=ASPAScontrol-labelASPAS>{NOMECAMPOSDESCRI}:</label>\n    <input type=ASPAStextASPAS class=ASPASform-control input-smASPAS id=ASPAS{NOMECAMPOS}ASPAS name=ASPAS{NOMECAMPOS}ASPAS {QUESTAO2}/>   \t\t\n</div>",
-                "Parameters": [
-                    { "Name": "NOMECAMPOS", "Description": "Digite o Nome dos Campos separados por virgula: " },
-                    { "Name": "NOMECAMPOSDESCRI", "Description": "Digite Descrição dos Campos separados por virgula: " }
-                ],
-                "ParameterType": "SPLITVIRGULA",
-                "questions": {
-                    "QUESTAO1": {
-                        "Pergunta": "Deseja alterar o Tamanho da coluna dos campos? Padrão: col-md-2",
-                        "SeSim": { "Type": "IMPUT", "Text": "Digite o tamanho: ", "Code": "", "CODEFINAL": "" },
-                        "DEFAULTVALUE": "col-md-2"
-                    },
-                    "QUESTAO2": {
-                        "Pergunta": "Deseja adicionar a validação por etapa?",
-                        "SeSim": { "Type": "IMPUT", "Text": "Digite as atividades separadas por virgula: ", "Code": "data-fluig-state-valid=ASPAS", "CODEFINAL": "ASPAS" },
-                        "DEFAULTVALUE": ""
-                    },
-                    "QUESTAO2_1": {
-                        "Pergunta": "Campos Obrigatórios?",
-                        "SeSim": { "Type": "NOTREAT", "Text": "", "Code": "data-fluig-required=ASPAStrueASPAS", "CODEFINAL": "" },
-                        "DEFAULTVALUE": ""
-                    }
-                }
-            }
-        }
-    },
-    "COMP3": {
+    "4": {
         "title": "Tabela 2 Pagina Publica",
         "Description": "Tabela Com Colunas Variaveis feita para paginas publicas, o tamanho dos campos será definido por padrão em col-md-2.",
         "Message": "No Inicio do Arquivo terá as funções em JavaScript para usar como Exemplo para poder adicionar as linhas e também remover elas.",
@@ -101,25 +119,6 @@
                 "CodeText": "ASPAS;\n\n\tnewrow.append(cols);\n\t$(ASPAS#itensSociosASPAS).append(newrow);\nCHAVESOUT\n\n//Função para remover item na tabela pai x filho\nfunction removerItem(obj) CHAVESIN\n\tvar row = obj.parentElement.parentElement.parentElement;\n    \n    FLUIGC.message.confirm(CHAVESIN\n        message: 'Deseja remover o item?',\n        title: 'Confirmação',\n        labelYes: 'Sim',\n        labelNo: 'Não'\n    CHAVESOUT, function(result, el, ev) CHAVESIN\n        if (result) CHAVESIN\n            var qtde = $(ASPAS#qtdeItensASPAS).val();\n            row.parentNode.removeChild(row);\n\n            qtde--;\n            $(ASPAS#qtdeItensASPAS).val(qtde);\n        CHAVESOUT\n    CHAVESOUT);\nCHAVESOUT\n------------------------------------------------------------------------------\n<div class=ASPASrowASPAS>\n    <div class=ASPAScol-md-2ASPAS id=ASPASbotaoAdicionarASPAS>\n        <button type=ASPASbuttonASPAS class=ASPASbtn btn-primaryASPAS onclick=ASPASadicionarItem()ASPAS>Adicionar</button>\n    </div>\n</div>\n</br>\n<div class=ASPASrowASPAS>\n    <input type=ASPAShiddenASPAS id=ASPASqtdeItensASPAS name=ASPASqtdeItensASPAS value=ASPAS0ASPAS>\n    <div class=ASPAStable-responsiveASPAS>\n        <table class=ASPAStable table-striped table-hover table-condensedASPAS id=ASPASitens{TABLENAME}ASPAS tablename=ASPASitens{TABLENAME}ASPAS noaddbutton=ASPAStrueASPAS nodeletebutton=ASPAStrueASPAS>\n            <thead>\n                <tr class=ASPASfs-display-noneASPAS>\n                    <th></th>\n                    <th></th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr detail=ASPAStrueASPAS detailname=ASPASVIEW_ITEMASPAS class=ASPASfw-table-tr itensTabela{TABLENAME}ASPAS>\n                    <!--\n                    <td id=ASPAStdFieldsASPAS class=ASPASfw-table-td fs-full-widthASPAS>\n                        <div class=ASPASrowASPAS>\n                            <div class=ASPASform-group col-md-2ASPAS data-fluig-state-hide=ASPAS5,20ASPAS style=ASPASwidth:40px !important;ASPAS>\n                                <label class=ASPAScontrol-labelASPAS style=ASPAScolor: white;ASPAS>Trash</label>\n                                <span class=ASPASfluigicon fluigicon-trash icon-mdASPAS style=ASPAScursor:pointer;ASPAS onclick=ASPASremoverItem{TABLENAME}(this)ASPAS>\n                                </span>\n                            </div>\n                            <div class=ASPASform-group col-md-2ASPAS>\n                                <label class=ASPAScontrol-labelASPAS >Campo Exemplo</label> \n                                <input type=ASPAStextASPAS id=ASPASCampoExemploASPAS name=ASPASCampoExemploASPAS class=ASPASform-controlASPAS>\n                            </div>\n                        </div> \n                    </td>    \n                    -->\n                </tr> \n            </tbody> \n        </table> \n    </div> \n</div>",
                 "Parameters": [
                     { "Name": "TABLENAME", "Description": "Digite o Nome da Tabela: " }
-                ],
-                "ParameterType": "NOTREAT",
-                "questions": {}
-            }
-        }
-    },
-    "COMP4": {
-        "title": "Campo Zoom",
-        "Description": "Campo Zoom com o HTML e exemplo de codigo em javascript",
-        "Message": "No Inicio do Arquivo terá as funções em JavaScript para usar como Exemplo para poder adicionar as linhas e também remover elas.",
-        "CODE": {
-            "1": {
-                "CodeText": "function adicionarItem() CHAVESIN\n\tvar newrow = $(ASPAS<tr>ASPAS);\n\n\tvar qtde = $(ASPAS#qtdeItensASPAS).val();\n    qtde++;\n    $(ASPAS#qtdeItensASPAS).val(qtde);\n    \n    var linha = qtde;\n    \n    var cols = ASPAS<td id=ASPAStdFieldsASPAS class=ASPASfw-table-td fs-full-widthASPAS> <div class=ASPASrowASPAS> <div class=ASPASform-group col-md-2ASPAS data-fluig-state-hide=ASPAS5,20ASPAS style=ASPASwidth:40px !important;ASPAS> <label class=ASPAScontrol-labelASPAS style=ASPAScolor: white;ASPAS>Trash</label> <span class=ASPASfluigicon fluigicon-trash icon-mdASPAS style=ASPAScursor:pointer;ASPAS onclick=ASPASremoverItem(this)ASPAS> </span> </div>",
-                "Parameters": [
-                    { "Name": "NOMECAMPO", "Description": "Digite o Nome do Campo: " },
-                    { "Name": "NOMEDATASET", "Description": "Digite o Nome do DataSet que será usado pelo Zoom: " },
-                    { "Name": "CAMPOSEXIBICAO", "Description": "Digite os Campos de Exibição no Padrão Zoom: " },
-                    { "Name": "CAMPOSRETORNO", "Description": "Digite os Campos de Retorno no Padrão Zoom: " },
-                    { "Name": "TITULO", "Description": "Titulo Do Zoom: " }
                 ],
                 "ParameterType": "NOTREAT",
                 "questions": {}
