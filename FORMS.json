@@ -13,7 +13,7 @@
                 "questions": {}
             },
             "2": {
-                "CodeText": "                            <div class=ASPAS{QUESTAO1} ASPAS>\n                                <label class=ASPAScontrol-labelASPAS>{NOMECAMPOSDESCRI}:</label>\n                                <input type=ASPAStextASPAS class=ASPASform-control input-smASPAS id=ASPAS{NOMECAMPOS}ASPAS name=ASPAS{NOMECAMPOS}ASPAS {QUESTAO2}/>                               \t\t\n</div>",
+                "CodeText": "                            <div class=ASPAS{QUESTAO1} ASPAS>\n                                <label class=ASPAScontrol-labelASPAS>{NOMECAMPOSDESCRI}:</label>\n                                <input type=ASPAStextASPAS class=ASPASform-control input-smASPAS id=ASPAS{NOMECAMPOS}ASPAS name=ASPAS{NOMECAMPOS}ASPAS {QUESTAO2}/>                               \t\t\n                            </div>",
                 "Parameters": [
                     { "Name": "NOMECAMPOS", "Description": "Digite o Nome dos Campos separados por virgula: " },
                     { "Name": "NOMECAMPOSDESCRI", "Description": "Digite Descrição dos Campos separados por virgula: " }
