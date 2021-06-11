@@ -65,7 +65,7 @@
                     },
                     "QUESTAO2_1": {
                         "Pergunta": "Deseja adicionar a validação de Preenchimento? (data-fluig-write)",
-                        "SeSim": { "Type": "IMPUT", "Text": "Digite as atividades separadas por virgula", "Code": "data-fluig-write=ASPAS", "CODEFINAL": "ASPAS" },
+                        "SeSim": { "Type": "IMPUT", "Text": "Digite as atividades separadas por virgula: ", "Code": "data-fluig-write=ASPAS", "CODEFINAL": "ASPAS" },
                         "DEFAULTVALUE": ""
                     },
                     "QUESTAO2_2": {
