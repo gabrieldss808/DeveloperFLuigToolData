@@ -18,12 +18,17 @@
                         "DEFAULTVALUE": "col-md-2"
                     },
                     "QUESTAO2": {
-                        "Pergunta": "Deseja adicionar a validação por etapa?",
+                        "Pergunta": "Deseja adicionar a validação por etapa? (data-fluig-state-valid)",
                         "SeSim": { "Type": "IMPUT", "Text": "Digite as atividades separadas por virgula: ", "Code": "data-fluig-state-valid=ASPAS", "CODEFINAL": "ASPAS" },
                         "DEFAULTVALUE": ""
                     },
                     "QUESTAO2_1": {
-                        "Pergunta": "Campos Obrigatórios?",
+                        "Pergunta": "Deseja adicionar a validação de Preenchimento? (data-fluig-write)",
+                        "SeSim": { "Type": "IMPUT", "Text": "Digite as atividades separadas por virgula", "Code": "data-fluig-write=ASPAS", "CODEFINAL": "ASPAS" },
+                        "DEFAULTVALUE": ""
+                    },
+                    "QUESTAO2_2": {
+                        "Pergunta": "Campos Obrigatórios? (data-fluig-required)",
                         "SeSim": { "Type": "NOTREAT", "Text": "", "Code": "data-fluig-required=ASPAStrueASPAS", "CODEFINAL": "" },
                         "DEFAULTVALUE": ""
                     }
@@ -33,20 +38,42 @@
     },
     "2": {
         "title": "Campo Zoom",
-        "Description": "Campo Zoom com o HTML e exemplo de codigo em javascript",
-        "Message": "",
+        "Description": "Campo Zoom com o HTML e exemplo de codigo em javascript para o Zoom",
+        "Message": "Consulte o Portal DEV IP para as melhores praticas no Uso da LIB, \ntambém no MENU JS, tem exemplos das funções padrões do Zoom da Totvs IP.",
         "CODE": {
             "1": {
-                "CodeText": "function adicionarItem() CHAVESIN\n\tvar newrow = $(ASPAS<tr>ASPAS);\n\n\tvar qtde = $(ASPAS#qtdeItensASPAS).val();\n    qtde++;\n    $(ASPAS#qtdeItensASPAS).val(qtde);\n    \n    var linha = qtde;\n    \n    var cols = ASPAS<td id=ASPAStdFieldsASPAS class=ASPASfw-table-td fs-full-widthASPAS> <div class=ASPASrowASPAS> <div class=ASPASform-group col-md-2ASPAS data-fluig-state-hide=ASPAS5,20ASPAS style=ASPASwidth:40px !important;ASPAS> <label class=ASPAScontrol-labelASPAS style=ASPAScolor: white;ASPAS>Trash</label> <span class=ASPASfluigicon fluigicon-trash icon-mdASPAS style=ASPAScursor:pointer;ASPAS onclick=ASPASremoverItem(this)ASPAS> </span> </div>",
+                "CodeText": "function zoom{NOMECAMPO}(obj) CHAVESIN\n\t\n    var type = $(obj).prev(ASPASinputASPAS).attr(ASPASnameASPAS);\n    var filters = ASPASASPAS;\n    var searchby = ASPASFILTROASPAS;\n    \n    tdizoom.open(\n        ASPAS{NOMEDATASET}ASPAS, //Nome do Dataset\n        ASPAS{CAMPOSEXIBICAO}ASPAS,  //Campos a serem exibidos\n        ASPAS{CAMPOSRETORNO}ASPAS, //Campos de retorno\n        ASPAS{TITULO}ASPAS, //Titulo\n        filters, //Filtros\n        type, //Type (deve ser sempre o atributo name do campo)\n        null, //likefield\n        null, //likevalue\n        searchby //Campo/Constraint que será buscado o conteudo digitado (Seachby)\n    );\n\nCHAVESOUT\n\n---------------------------------------------------------------------------------------------\n\n<div class = ASPAS{QUESTAO1}ASPAS>\n    <label class=ASPAScontrol-labelASPAS>{DESCRICAMPO}</label>\n    <div class=ASPASinput-groupASPAS>\n        <input type=ASPAStextASPAS class=ASPASform-control zoom-tdiASPAS id=ASPAS{NOMECAMPO}ASPAS name=ASPAS{NOMECAMPO}ASPAS \n        {QUESTAO2} onchange=ASPASvalidaCampo(this)ASPAS>\n        <div class=ASPASinput-group-addonASPAS style=ASPAScursor:pointer;ASPAS onclick=ASPASzoom{NOMECAMPO}(this)ASPAS >\n            <span class=ASPASfluigicon fluigicon-zoom-in fluigicon-smASPAS > </span>\n        </div>\n    </div>\n</div>",
                 "Parameters": [
                     { "Name": "NOMECAMPO", "Description": "Digite o Nome do Campo: " },
+                    { "Name": "DESCRICAMPO", "Description": "Descrição do Campo: " },
                     { "Name": "NOMEDATASET", "Description": "Digite o Nome do DataSet que será usado pelo Zoom: " },
                     { "Name": "CAMPOSEXIBICAO", "Description": "Digite os Campos de Exibição no Padrão Zoom: " },
                     { "Name": "CAMPOSRETORNO", "Description": "Digite os Campos de Retorno no Padrão Zoom: " },
                     { "Name": "TITULO", "Description": "Titulo Do Zoom: " }
                 ],
                 "ParameterType": "NOTREAT",
-                "questions": {}
+                "questions": {
+                    "QUESTAO1": {
+                        "Pergunta": "Deseja alterar o Tamanho da coluna dos campos? Padrão: col-md-2",
+                        "SeSim": { "Type": "IMPUT", "Text": "Digite o tamanho: ", "Code": "", "CODEFINAL": "" },
+                        "DEFAULTVALUE": "col-md-2"
+                    },
+                    "QUESTAO2": {
+                        "Pergunta": "Deseja adicionar a validação por etapa? (data-fluig-state-valid)",
+                        "SeSim": { "Type": "IMPUT", "Text": "Digite as atividades separadas por virgula: ", "Code": "data-fluig-state-valid=ASPAS", "CODEFINAL": "ASPAS" },
+                        "DEFAULTVALUE": ""
+                    },
+                    "QUESTAO2_1": {
+                        "Pergunta": "Deseja adicionar a validação de Preenchimento? (data-fluig-write)",
+                        "SeSim": { "Type": "IMPUT", "Text": "Digite as atividades separadas por virgula", "Code": "data-fluig-write=ASPAS", "CODEFINAL": "ASPAS" },
+                        "DEFAULTVALUE": ""
+                    },
+                    "QUESTAO2_2": {
+                        "Pergunta": "Campos Obrigatórios? (data-fluig-required)",
+                        "SeSim": { "Type": "NOTREAT", "Text": "", "Code": "data-fluig-required=ASPAStrueASPAS", "CODEFINAL": "" },
+                        "DEFAULTVALUE": ""
+                    }
+                }
             }
         }
     },
