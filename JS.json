@@ -1,5 +1,21 @@
 {
-    "COMP1": {
+    "1": {
+        "title": "Funções Tabela 1",
+        "Description": "Funções para adicionar e remover itens de Tabelas",
+        "Message": "As funções seguem um padrão, analise e altere elas conforme a sua necessidade.",
+        "CODE": {
+            "1": {
+                "CodeText": "//Função para adicionar itens em uma tabela pai x filho.\nfunction adicionarItemDemanda() CHAVESIN\n    var id = wdkAddChild(ASPAS{NOMETABELA}ASPAS);\n    var qtd = $(ASPAS#{VARIAVELQTD}ASPAS).val();\n    var atividade = getWKNumState();\n    \n    qtd++    \n    $(ASPAS#{VARIAVELQTD}ASPAS).val(qtd);\nCHAVESOUT\n\n//Função para remover itens de uma tabela pai x filho.\nfunction removerItemDemanda(obj) CHAVESIN\n    var id = $(obj).closest(ASPAStrASPAS).find(ASPASinput:firstASPAS).attr(ASPASnameASPAS).split(ASPAS___ASPAS)[1];\n    \n    FLUIGC.message.confirm(CHAVESIN\n        message: 'Deseja remover o item?',\n        title: 'Confirmação',\n        labelYes: 'Sim',\n        labelNo: 'Não'\n    CHAVESOUT, function(result, el, ev) CHAVESIN\n        if (result) CHAVESIN\n            var qtde = $(ASPAS#{VARIAVELQTD}ASPAS).val();\n            fnWdkRemoveChild(obj);\n\n            qtde--;\n            $(ASPAS#{VARIAVELQTD}ASPAS).val(qtde);\n        CHAVESOUT\n    CHAVESOUT);\nCHAVESOUT",
+                "Parameters": [
+                    { "Name": "NOMETABELA", "Description": "Digite o Nome da Tabela: " },
+                    { "Name": "VARIAVELQTD", "Description": "Digite o Nome da Variavel de Quantidade: " }
+                ],
+                "ParameterType": "NOTREAT",
+                "questions": {}
+            }
+        }
+    },
+    "2": {
         "title": "DataSetZoomConsumer",
         "Description": "Script para criação de função em JS para serem usadas em campos Zoom",
         "Parameters": [
@@ -34,7 +50,7 @@
         }
     },
 
-    "COMP2": {
+    "3": {
         "title": "Chat1",
         "Description": "Chat usado em pagina publica alimentando um formulário",
         "Parameters": [
