@@ -151,5 +151,50 @@
                 "questions": {}
             }
         }
+    },
+    "1": {
+        "title": "Campos Em Tabela",
+        "Description": "Gera campos em sequencia no tipo Formulario Ficha de preenchimento.",
+        "Message": "Para cada Codigo gerado é gerado uma TR onde você tem que definir a porcentagem de tamanho de cada campo.",
+        "CODE": {
+            "1": {
+                "CodeText": "<tr>\n",
+                "Parameters": [],
+                "ParameterType": "NO",
+                "questions": {}
+            },
+            "2": {
+                "CodeText": "    <td colspan=ASPAS{PERCENTCAMPOS}ASPAS>\n        <label class=ASPAScontrol-labelASPAS>{NOMECAMPOS}</label>\n        <input type=ASPAStextASPAS class=ASPASform-controlASPAS id=ASPAS{NOMECAMPOSDESCRI}ASPAS name=ASPAS{NOMECAMPOSDESCRI}ASPAS \n        {QUESTAO2}  >\n    </td>",
+                "Parameters": [
+                    { "Name": "NOMECAMPOS", "Description": "Digite o Nome dos Campos separados por virgula: " },
+                    { "Name": "NOMECAMPOSDESCRI", "Description": "Digite Descrição dos Campos separados por virgula: " },
+                    { "Name": "PERCENTCAMPOS", "Description": "Digite a porcentagem de tamanho dos Campos separados por virgula: " }
+                ],
+                "ParameterType": "SPLITVIRGULA",
+                "questions": {
+                    "QUESTAO2": {
+                        "Pergunta": "Deseja adicionar a validação por etapa? (data-fluig-state-valid)",
+                        "SeSim": { "Type": "IMPUT", "Text": "Digite as atividades separadas por virgula: ", "Code": "data-fluig-state-valid=ASPAS", "CODEFINAL": "ASPAS" },
+                        "DEFAULTVALUE": ""
+                    },
+                    "QUESTAO2_1": {
+                        "Pergunta": "Deseja adicionar a validação de Preenchimento? (data-fluig-write)",
+                        "SeSim": { "Type": "IMPUT", "Text": "Digite as atividades separadas por virgula: ", "Code": "data-fluig-write=ASPAS", "CODEFINAL": "ASPAS" },
+                        "DEFAULTVALUE": ""
+                    },
+                    "QUESTAO2_2": {
+                        "Pergunta": "Campos Obrigatórios? (data-fluig-required)",
+                        "SeSim": { "Type": "NOTREAT", "Text": "", "Code": "data-fluig-required=ASPAStrueASPAS", "CODEFINAL": "" },
+                        "DEFAULTVALUE": ""
+                    }
+                }
+            },
+            "3": {
+                "CodeText": "\n</tr>",
+                "Parameters": [],
+                "ParameterType": "NO",
+                "questions": {}
+            }
+        }
     }
 }
