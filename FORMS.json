@@ -164,7 +164,7 @@
                 "questions": {}
             },
             "2": {
-                "CodeText": "    <td colspan=ASPAS{PERCENTCAMPOS}ASPAS>\n        <label class=ASPAScontrol-labelASPAS>{NOMECAMPOSDESCRI}</label>\n        <input type=ASPAStextASPAS class=ASPASform-controlASPAS id=ASPAS{NOMECAMPOS}ASPAS name=ASPAS{NOMECAMPOS}ASPAS \n        {QUESTAO2}  >\n    </td>",
+                "CodeText": "    <td style=ASPASwidth: {PERCENTCAMPOS};ASPAS>\n        <label class=ASPAScontrol-labelASPAS>{NOMECAMPOSDESCRI}</label>\n        <input type=ASPAStextASPAS class=ASPASform-controlASPAS id=ASPAS{NOMECAMPOS}ASPAS name=ASPAS{NOMECAMPOS}ASPAS \n        {QUESTAO2}  >\n    </td>",
                 "Parameters": [
                     { "Name": "NOMECAMPOS", "Description": "Digite o Nome dos Campos separados por virgula: " },
                     { "Name": "NOMECAMPOSDESCRI", "Description": "Digite Descrição dos Campos separados por virgula: " },
