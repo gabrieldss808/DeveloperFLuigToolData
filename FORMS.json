@@ -196,5 +196,22 @@
                 "questions": {}
             }
         }
+    },
+    "6": {
+        "title": "Painel 1",
+        "Description": "Um exemplo de painel collapse.",
+        "Message": "Ele é simples, é apenas para facilitar.",
+        "CODE": {
+            "1": {
+                "CodeText": "<div class=ASPASpanel panel-primaryASPAS>\n\t<div class=ASPASpanel-heading ASPAS >\n\t\t<h4 class=ASPASpanel-title text-whiteASPAS>\n\t\t\t<a class=ASPAScollapse-icon ASPAS data-toggle=ASPAScollapseASPAS data-parent=ASPAS#accordionASPAS href=ASPAS#{ID}ASPAS>\n\t\t\t\t{TITLE}\n\t\t\t</a>\n\t\t</h4>\n\t</div>\n\t<div id=ASPAS{ID}ASPAS class=ASPASpanel-collapse inASPAS>\n\t\t<div class=ASPASpanel-body container-fluidASPAS>\n\t\t\t<div class=ASPASrow ASPAS>\t\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>",
+                "Parameters": [
+                    { "Name": "TITLE", "Description": "Digite o Titulo do Painel: " },
+                    { "Name": "ID", "Description": "Digite o ID unico do Painel: " }
+
+                ],
+                "ParameterType": "NOTREAT",
+                "questions": {}
+            }
+        }
     }
 }
