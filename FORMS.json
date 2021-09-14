@@ -213,5 +213,58 @@
                 "questions": {}
             }
         }
+    },
+    "7": {
+        "title": "Campo Tipo Select",
+        "Description": "Gera um campo Seletc, permitindo adicionar as opções de forma facil",
+        "Message": "Apenas para facilitar.",
+        "CODE": {
+            "1": {
+                "CodeText": "<div class=ASPAS{QUESTAO1}ASPAS>\n\t<label class=ASPAScontrol-labelASPAS>{NOMECAMPOSDESCRI}</label>\n\t<select class=ASPASform-controlASPAS  id=ASPAS{NOMECAMPOS}ASPAS name=ASPAS{NOMECAMPOS}ASPAS {QUESTAO2}>\n\t\t<option value=ASPASASPAS>Selecione...</option>",
+                "Parameters": [
+                    { "Name": "NOMECAMPOS", "Description": "Digite o ID do Campo: " },
+                    { "Name": "NOMECAMPOSDESCRI", "Description": "Digite Descrição do Campo: " }
+                ],
+                "ParameterType": "NOTREAT",
+                "questions": {
+                    "QUESTAO1": {
+                        "Pergunta": "Deseja alterar o Tamanho da coluna dos campos? Padrão: col-md-2",
+                        "SeSim": { "Type": "IMPUT", "Text": "Digite o tamanho: ", "Code": "", "CODEFINAL": "" },
+                        "DEFAULTVALUE": "col-md-2"
+                    },
+                    "QUESTAO2": {
+                        "Pergunta": "Deseja adicionar a validação por etapa? (data-fluig-state-valid)",
+                        "SeSim": { "Type": "IMPUT", "Text": "Digite as atividades separadas por virgula: ", "Code": "data-fluig-state-valid=ASPAS", "CODEFINAL": "ASPAS" },
+                        "DEFAULTVALUE": ""
+                    },
+                    "QUESTAO2_1": {
+                        "Pergunta": "Deseja adicionar a validação de Preenchimento? (data-fluig-write)",
+                        "SeSim": { "Type": "IMPUT", "Text": "Digite as atividades separadas por virgula: ", "Code": "data-fluig-write=ASPAS", "CODEFINAL": "ASPAS" },
+                        "DEFAULTVALUE": ""
+                    },
+                    "QUESTAO2_2": {
+                        "Pergunta": "Campos Obrigatórios? (data-fluig-required)",
+                        "SeSim": { "Type": "NOTREAT", "Text": "", "Code": "data-fluig-required=ASPAStrueASPAS", "CODEFINAL": "" },
+                        "DEFAULTVALUE": ""
+                    }
+                }
+            },
+            "2": {
+                "CodeText": "\t\t<option value=ASPAS{VALUE}ASPAS>{NAME}</option>",
+                "Parameters": [
+                    { "Name": "VALUE", "Description": "Digite o valor das opções separados por virgula: " },
+                    { "Name": "NAME", "Description": "Digite Descrição das opções separados por virgula: " }
+                ],
+                "ParameterType": "SPLITVIRGULA",
+                "questions": {}
+            },
+            "3": {
+                "CodeText": "\t</select>\n</div>",
+                "Parameters": [],
+                "ParameterType": "NO",
+                "questions": {}
+            }
+        }
     }
+
 }
