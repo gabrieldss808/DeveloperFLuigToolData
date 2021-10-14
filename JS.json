@@ -99,5 +99,21 @@
                 "questions": {}
             }
         }
+    },
+    "5": {
+        "title": "Consumo DataSet 2",
+        "Description": "Exemplo de função para consumir um dataset dentro de um formulário do Fluig com uma tabela pai x filho.",
+        "Message": "Altere ou adicione as constraints conforme a sua necessidade.",
+        "CODE": {
+            "1": {
+                "CodeText": "var constraints = [];\n\nconstraints.push(DatasetFactory.createConstraint(ASPASNome da ConstraintASPAS, valor da Constraint, valor da Constraint, ConstraintType.MUST));\nvar datasetPrincipal = DatasetFactory.getDataset(ASPASDATASETNAMEASPAS, null, constraints, null);  \n\nfor(var i = 0; i < datasetPrincipal.values.length; i++) \nCHAVESIN   \n    \n    var documentId = datasetPrincipal.values[i].documentid;\n    var documentVersion = datasetPrincipal.values[i].version;\n\n    //Cria as constraints para buscar os campos filhos, passando o tablename, número da formulário e versão\n    var c1 = DatasetFactory.createConstraint(ASPAStablenameASPAS, ASPASTABLENAMEASPAS ,ASPASTABLENAMEASPAS, ConstraintType.MUST);\n    var c2 = DatasetFactory.createConstraint(ASPASmetadata#idASPAS, documentId, documentId, ConstraintType.MUST);\n    var c3 = DatasetFactory.createConstraint(ASPASmetadata#versionASPAS, documentVersion, documentVersion, ConstraintType.MUST);\n    var constraintsFilhos = new Array(c1, c2, c3);\n\n    //Busca o dataset\n    var datasetFilhos = DatasetFactory.getDataset(ASPASDATASETNAMEASPAS, null, constraintsFilhos, null);\n\n    for(var j = 0; j < datasetFilhos.values.length; j++)\n    CHAVESIN\n        //datasetFilhos.values[j]\n    CHAVESOUT\nCHAVESOUT",
+                "Parameters": [
+                    { "Name": "DATASETNAME", "Description": "Código do Dataset" },
+                    { "Name": "TABLENAME", "Description": "Id da Tabela Filho" }
+                ],
+                "ParameterType": "NOTREAT",
+                "questions": {}
+            }
+        }
     }
 }
