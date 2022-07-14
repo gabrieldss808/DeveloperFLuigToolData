@@ -16,36 +16,17 @@
         }
     },
     "2": {
-        "title": "DataSetZoomConsumer",
-        "Description": "Script para criação de função em JS para serem usadas em campos Zoom",
-        "Parameters": [
-            { "Name": "NOMECAMPO", "Description": "Nome do Campo Zoom para ser usado na criação da Função" },
-            { "Name": "NOMEDATASET", "Description": "Nome do Dataset a ser consumido" },
-            { "Name": "TITULO", "Description": "Titulo Zoom" },
-            { "Name": "CAMPOSEXIBICAO", "Description": "Campos a serem exibidos no padrão zoom, Campo1,Descricao Campo1,Campo2,Descricao campo2" },
-            { "Name": "CAMPOSRETORNO", "Description": "Campo1,Campo2,Campo3" }
-        ],
+        "title": "Funções Zoom Lib Fluig",
+        "Description": "Funções padrões para uso dos campos Zoom na Lib Fluig",
+        "Message": "Altere ou adicione as constraints conforme a sua necessidade.",
         "CODE": {
-            "Type": "LOOPINPARAMETERS",
-            "PreCode": {
-                "CodeText": "",
-                "Parameters": [],
-                "ParameterType": "NOTREAT"
-            },
-            "PosCode": {
-                "CodeText": "",
-                "Parameters": []
-            },
-            "CodeToAddParameter": {
+            "1": {
+                "CodeText": "var constraints = [];\n\nconstraints.push(DatasetFactory.createConstraint(ASPASNome da ConstraintASPAS, valor da Constraint, valor da Constraint, ConstraintType.MUST));\nvar dataset = DatasetFactory.getDataset(ASPAS{DATASETNAME}ASPAS, null, constraints, null);  \n\nfor(var i = 0; i < dataset.values.length; i++) \nCHAVESIN   \n    \n    //dataset.values[i]\nCHAVESOUT",
                 "Parameters": [
-                    "NOMECAMPO",
-                    "NOMEDATASET",
-                    "TITULO",
-                    "CAMPOSEXIBICAO",
-                    "CAMPOSRETORNO"
+                    { "Name": "DATASETNAME", "Description": "Código do Dataset: " }
                 ],
                 "ParameterType": "NOTREAT",
-                "Code": "function zoom{NOMECAMPO}(obj)\nCHAVESIN\n\tvar constraints = [];\n\tvar type = $(obj).prev(ASPASinputASPAS).attr(ASPASnameASPAS);\n    var filters = ASPASASPAS\n    var searchby = ASPASFILTROASPAS;\n    \n    tdizoom.open(\n        ASPAS{NOMEDATASET}ASPAS, //Nome do Dataset\n        ASPAS{CAMPOSEXIBICAO}ASPAS,  //Campos a serem exibidos\n        ASPAS{CAMPOSRETORNO}ASPAS, //Campos de retorno\n        ASPAS{TITULO}ASPAS, //Título\n        filters, //Filtros\n        type, //Type (deve ser sempre o atributo name do campo)\n        null, //likefield\n        null, //likevalue\n        searchby //Campo/Constraint que será buscado o conteudo digitado (Seachby)\n    );\nCHAVESOUT"
+                "questions": {}
             }
         }
     },
@@ -91,11 +72,9 @@
         "Message": "Altere ou adicione as constraints conforme a sua necessidade.",
         "CODE": {
             "1": {
-                "CodeText": "var constraints = [];\n\nconstraints.push(DatasetFactory.createConstraint(ASPASNome da ConstraintASPAS, valor da Constraint, valor da Constraint, ConstraintType.MUST));\nvar dataset = DatasetFactory.getDataset(ASPAS{DATASETNAME}ASPAS, null, constraints, null);  \n\nfor(var i = 0; i < dataset.values.length; i++) \nCHAVESIN   \n    \n    //dataset.values[i]\nCHAVESOUT",
-                "Parameters": [
-                    { "Name": "DATASETNAME", "Description": "Código do Dataset: " }
-                ],
-                "ParameterType": "NOTREAT",
+                "CodeText": "//Função padrão ao selecionar um item no campo zoom\nfunction setSelectedZoomItem(selectedItem) CHAVESIN\n    var name = selectedItem.type.split(ASPAS___ASPAS)[0];\n    var indice = selectedItem.type.split(ASPAS___ASPAS);\n\n    if (indice.length > 1) CHAVESIN //Campos Pai-filho\n        var id = indice[1];\n    CHAVESOUT\n\nCHAVESOUT\n\n//Função padrão ao remover um item do campo zoom\nfunction removedZoomItem(removedItem) CHAVESIN\n    var name = removedItem.split(ASPAS___ASPAS)[0];\n    var indice = removedItem.split(ASPAS___ASPAS);\n\n    if (indice.length > 1) CHAVESIN //Campos Pai-filho\n        var id = indice[1];\n    CHAVESOUT\nCHAVESOUT\n\n//Função de gatilho do zoom\nfunction gatilhoZoom(obj) CHAVESIN\n    var type = $(obj).attr(ASPASnameASPAS);\n    var name = type.split(ASPAS___ASPAS)[0];\n    var indice = type.split(ASPAS___ASPAS);\n    var filters = ASPASASPAS;\n    var dataset = ASPASASPAS;\n    var searchby = ASPASASPAS;\n    var searchValue = $(obj).val();\n\n    if (indice.length > 1) CHAVESIN //Campos Pai-filho\n        var id = indice[1];\n        if (name == ASPASexemploASPAS) CHAVESIN\n            dataset = ASPASdsExemploASPAS;\n            searchby = ASPASFILTROASPAS;\n        CHAVESOUT\n    CHAVESOUT\n\n    if (name == ASPASExemploASPAS) CHAVESIN\n        var ExemploFiltro = $(ASPAS#ExemploFiltroASPAS).val();\n\n        dataset = ASPASdsExemploASPAS;\n        searchby = ASPASFILTROASPAS;\n        var filters = ASPASTEXTOFILTRO,ASPAS + ExemploFiltro;\n    CHAVESOUT\n\n    if (dataset != ASPASASPAS) CHAVESIN\n        tdizoom.trigger(dataset, searchby, searchValue, filters, type);\n    CHAVESOUT\nCHAVESOUT",
+                "Parameters": [],
+                "ParameterType": "NO",
                 "questions": {}
             }
         }
