@@ -1,98 +1,195 @@
 {
+
     "1": {
+
         "title": "Funções Tabela 1",
+
         "Description": "Funções para adicionar e remover itens de Tabelas",
+
         "Message": "As funções seguem um padrão, analise e altere elas conforme a sua necessidade.",
+
         "CODE": {
+
             "1": {
-                "CodeText": "//Função para adicionar itens em uma tabela pai x filho.\nfunction adicionarItem{NOMETABELA}() CHAVESIN\n    var id = wdkAddChild(ASPAS{NOMETABELA}ASPAS);\n    var qtd = $(ASPAS#{VARIAVELQTD}ASPAS).val();\n    var atividade = getWKNumState();\n    \n    qtd++    \n    $(ASPAS#{VARIAVELQTD}ASPAS).val(qtd);\nCHAVESOUT\n\n//Função para remover itens de uma tabela pai x filho.\nfunction remover{NOMETABELA}(obj) CHAVESIN\n    var id = $(obj).closest(ASPAStrASPAS).find(ASPASinput:firstASPAS).attr(ASPASnameASPAS).split(ASPAS___ASPAS)[1];\n    \n    FLUIGC.message.confirm(CHAVESIN\n        message: 'Deseja remover o item?',\n        title: 'Confirmação',\n        labelYes: 'Sim',\n        labelNo: 'Não'\n    CHAVESOUT, function(result, el, ev) CHAVESIN\n        if (result) CHAVESIN\n            var qtde = $(ASPAS#{VARIAVELQTD}ASPAS).val();\n            fnWdkRemoveChild(obj);\n\n            qtde--;\n            $(ASPAS#{VARIAVELQTD}ASPAS).val(qtde);\n        CHAVESOUT\n    CHAVESOUT);\nCHAVESOUT",
+
+                "CodeText": "//Função para adicionar itens em uma tabela pai x filho.\nfunction adicionarItem{NOMETABELA}() CHAVESIN\n    var id = wdkAddChild(ASPASitens{NOMETABELA}ASPAS);\n    var qtd = $(ASPAS#{VARIAVELQTD}ASPAS).val();\n    var atividade = getWKNumState();\n    \n    qtd++    \n    $(ASPAS#{VARIAVELQTD}ASPAS).val(qtd);\nCHAVESOUT\n\n//Função para remover itens de uma tabela pai x filho.\nfunction removerItem{NOMETABELA}(obj) CHAVESIN\n    var id = $(obj).closest(ASPAStrASPAS).find(ASPASinput:firstASPAS).attr(ASPASnameASPAS).split(ASPAS___ASPAS)[1];\n    \n    FLUIGC.message.confirm(CHAVESIN\n        message: 'Deseja remover o item?',\n        title: 'Confirmação',\n        labelYes: 'Sim',\n        labelNo: 'Não'\n    CHAVESOUT, function(result, el, ev) CHAVESIN\n        if (result) CHAVESIN\n            var qtde = $(ASPAS#{VARIAVELQTD}ASPAS).val();\n            fnWdkRemoveChild(obj);\n\n            qtde--;\n            $(ASPAS#{VARIAVELQTD}ASPAS).val(qtde);\n        CHAVESOUT\n    CHAVESOUT);\nCHAVESOUT",
+
                 "Parameters": [
+
                     { "Name": "NOMETABELA", "Description": "Digite o Nome da Tabela: " },
+
                     { "Name": "VARIAVELQTD", "Description": "Digite o Nome da Variável de Quantidade: " }
+
                 ],
+
                 "ParameterType": "NOTREAT",
+
                 "questions": {}
+
             }
+
         }
-    },
-    "2": {
-        "title": "Funções Zoom Lib Fluig",
-        "Description": "Funções padrões para uso dos campos Zoom na LIB",
-        "Message": "Altere ou adicione as constraints conforme a sua necessidade.",
-        "CODE": {
-            "1": {
-                "CodeText": "//Função padrão ao selecionar um item no campo zoom\nfunction setSelectedZoomItem(selectedItem) CHAVESIN\n    var name = selectedItem.type.split(ASPAS___ASPAS)[0];\n    var indice = selectedItem.type.split(ASPAS___ASPAS);\n\n    if (indice.length > 1) CHAVESIN //Campos Pai-filho\n        var id = indice[1];\n    CHAVESOUT\n\nCHAVESOUT\n\n//Função padrão ao remover um item do campo zoom\nfunction removedZoomItem(removedItem) CHAVESIN\n    var name = removedItem.split(ASPAS___ASPAS)[0];\n    var indice = removedItem.split(ASPAS___ASPAS);\n\n    if (indice.length > 1) CHAVESIN //Campos Pai-filho\n        var id = indice[1];\n    CHAVESOUT\nCHAVESOUT\n\n//Função de gatilho do zoom\nfunction gatilhoZoom(obj) CHAVESIN\n    var type = $(obj).attr(ASPASnameASPAS);\n    var name = type.split(ASPAS___ASPAS)[0];\n    var indice = type.split(ASPAS___ASPAS);\n    var filters = ASPASASPAS;\n    var dataset = ASPASASPAS;\n    var searchby = ASPASASPAS;\n    var searchValue = $(obj).val();\n\n    if (indice.length > 1) CHAVESIN //Campos Pai-filho\n        var id = indice[1];\n        if (name == ASPASexemploASPAS) CHAVESIN\n            dataset = ASPASdsExemploASPAS;\n            searchby = ASPASFILTROASPAS;\n        CHAVESOUT\n    CHAVESOUT\n\n    if (name == ASPASExemploASPAS) CHAVESIN\n        var ExemploFiltro = $(ASPAS#ExemploFiltroASPAS).val();\n\n        dataset = ASPASdsExemploASPAS;\n        searchby = ASPASFILTROASPAS;\n        var filters = ASPASTEXTOFILTRO,ASPAS + ExemploFiltro;\n    CHAVESOUT\n\n    if (dataset != ASPASASPAS) CHAVESIN\n        tdizoom.trigger(dataset, searchby, searchValue, filters, type);\n    CHAVESOUT\nCHAVESOUT",
-                "Parameters": [],
-                "ParameterType": "NO",
-                "questions": {}
-            }
-        }
+
     },
 
+    "2": {
+
+        "title": "Funções Zoom Lib Fluig",
+
+        "Description": "Funções padrões para uso dos campos Zoom na LIB",
+
+        "Message": "Altere ou adicione as constraints conforme a sua necessidade.",
+
+        "CODE": {
+
+            "1": {
+
+                "CodeText": "//Função padrão ao selecionar um item no campo zoom\nfunction setSelectedZoomItem(selectedItem) CHAVESIN\n    var name = selectedItem.type.split(ASPAS___ASPAS)[0];\n    var indice = selectedItem.type.split(ASPAS___ASPAS);\n\n    if (indice.length > 1) CHAVESIN //Campos Pai-filho\n        var id = indice[1];\n    CHAVESOUT\n\nCHAVESOUT\n\n//Função padrão ao remover um item do campo zoom\nfunction removedZoomItem(removedItem) CHAVESIN\n    var name = removedItem.split(ASPAS___ASPAS)[0];\n    var indice = removedItem.split(ASPAS___ASPAS);\n\n    if (indice.length > 1) CHAVESIN //Campos Pai-filho\n        var id = indice[1];\n    CHAVESOUT\nCHAVESOUT\n\n//Função de gatilho do zoom\nfunction gatilhoZoom(obj) CHAVESIN\n    var type = $(obj).attr(ASPASnameASPAS);\n    var name = type.split(ASPAS___ASPAS)[0];\n    var indice = type.split(ASPAS___ASPAS);\n    var filters = ASPASASPAS;\n    var dataset = ASPASASPAS;\n    var searchby = ASPASASPAS;\n    var searchValue = $(obj).val();\n\n    if (indice.length > 1) CHAVESIN //Campos Pai-filho\n        var id = indice[1];\n        if (name == ASPASexemploASPAS) CHAVESIN\n            dataset = ASPASdsExemploASPAS;\n            searchby = ASPASFILTROASPAS;\n        CHAVESOUT\n    CHAVESOUT\n\n    if (name == ASPASExemploASPAS) CHAVESIN\n        var ExemploFiltro = $(ASPAS#ExemploFiltroASPAS).val();\n\n        dataset = ASPASdsExemploASPAS;\n        searchby = ASPASFILTROASPAS;\n        var filters = ASPASTEXTOFILTRO,ASPAS + ExemploFiltro;\n    CHAVESOUT\n\n    if (dataset != ASPASASPAS) CHAVESIN\n        tdizoom.trigger(dataset, searchby, searchValue, filters, type);\n    CHAVESOUT\nCHAVESOUT",
+
+                "Parameters": [],
+
+                "ParameterType": "NO",
+
+                "questions": {}
+
+            }
+
+        }
+
+    },
+
+
+
     "3": {
+
         "title": "Chat1",
+
         "Description": "Chat usado em pagina publica alimentando um formulário",
+
         "Parameters": [
+
             { "Name": "DATASETFORMULARIO", "Description": "Codigo do Dataset do formulário interno do fluig" },
+
             { "Name": "CAMPONOMEPAGINAPUBLICA", "Description": "codigo do Campo de nome que pode ser usado para identificar o usuário na pagina publica" },
+
             { "Name": "NOMEEMPRESAINTERNO", "Description": "Nome da Empresa ou nome desejado para usar como identificador para a pessoa que enviar as mensagem pelo formulário do processo de forma interna." },
+
             { "Name": "SENHAUSUARIOADMIN", "Description": "Senha do usuário admin" }
+
         ],
+
         "CODE": {
+
             "Type": "LOOPINPARAMETERS",
+
             "PreCode": {
+
                 "CodeText": "#### Componente html para ser usado na pagina publica e no formulario #####\n\n<br>\n<center class=ASPASInformacoesCadastraisASPAS>\n\t<form class=ASPASfluig-cardChatASPAS>\n\t\t<center>\n\t\t\t<h1 style=ASPAScolor: #fff !important;ASPAS ><i class=ASPASfluigicon fluigicon-discuss icon-thumbnail-xsASPAS></i> Chat</h1>\n\t\t\t<div class=ASPASrowASPAS>\n\t\t\t\t<textarea class=ASPASfluig-cardChat-textAreaASPAS rows=ASPAS10ASPAS id=ASPASMessageBoxASPAS name=ASPASMessageBoxASPAS style=ASPASresize: none;ASPAS readonly ></textarea>\n\t\t\t</div>\n\t\t\t<div class=ASPASrowASPAS>\n\t\t\t\t<div class=ASPASfluig-cardChat-inputMessageASPAS>\n\t\t\t\t\t<div class=ASPASinput-groupASPAS>\n\t\t\t\t\t\t<input type=ASPAStextASPAS class=ASPASform-control form-control-mdASPAS id=ASPASmessageTextASPAS name=ASPASmessageTextASPAS/>  \n\t\t\t\t\t\t<div class=ASPASinput-group-addonASPAS style=ASPAScursor:pointer;ASPAS onclick=ASPASsendMessage()ASPAS>\n\t\t\t\t\t\t\t<span class=ASPASfluigicon fluigicon-arrow-turn-right icon-smASPAS ></span>\n\t\t\t\t\t\t</div>\n                    </div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</center>\n\t</form>\n</center>\n<br>\n\n<input type=ASPAShiddenASPAS id=ASPASCardIdASPAS name=ASPASCardIdASPAS>\n<input type=ASPAShiddenASPAS id=ASPASnumeroSolicitacaoASPAS name=ASPASnumeroSolicitacaoASPAS>\n#### Funções JS para a pagina publica ######\n\n//Para ser usado na inicialização da pagina ou num momento especifico//\nsetInterval(function()CHAVESIN updateMessage() CHAVESOUT, 3000);\n//////////////////////////////////////////////////////////////////////\n\nfunction updateMessage()\nCHAVESIN\n\tlet status = ASPASASPAS;\n\tlet fluighub = new FluigHub();\n\tlet constraints = [];\n\tvar processData = []\n\t\n\tconstraintsList = [CHAVESIN\n        _field: 'metadata#active',\n        _initialValue: true,\n        _finalValue: true,\n        _type: 1,\n        _likeSearch: false,\n    CHAVESOUT,CHAVESIN\n        _field: 'numeroSolicitacao',\n        _initialValue: $(ASPAS#numeroSolicitacaoASPAS).val(),\n        _finalValue: $(ASPAS#numeroSolicitacaoASPAS).val(),\n        _type: 1,\n        _likeSearch: false,\n    CHAVESOUT]\n  \n\tconst datasetOptions = CHAVESIN\n        name: 'CHAVESINDATASETFORMULARIOCHAVESOUT',\n        fields: [],\n        constraints: constraintsList,\n        order: [],\n    CHAVESOUT;\n\tvar that = this;\n\ttryCHAVESIN\n\t\tfluighub.execute(2,'post',JSON.stringify(datasetOptions),function(data)CHAVESIN\n\t\t\tdata = JSON.parse(data.result);\n\t\t\t\n\t\t\tif (data.content.values)CHAVESIN\n\t\t\t\tprocessData = data.content.values[data.content.values.length-1];\n\t\t\t\tMessage = processData.MessageBox;\n\t\t\t\t\n\t\t\t\tif($(ASPAS#MessageBoxASPAS).val() != Message)\n\t\t\t\tCHAVESIN\n\t\t\t\t\t$(ASPAS#MessageBoxASPAS).val(Message);\n\t\t\t\t\tFLUIGC.toast(CHAVESIN\n\t\t\t\t\t\ttitle: 'Atenção: ',\n\t\t\t\t\t\tmessage: ASPASNova mensagem No Chat!ASPAS,\n\t\t\t\t\t\ttype: 'success'\n\t\t\t\t\tCHAVESOUT);\n\t\t\t\tCHAVESOUT\n\t\t\tCHAVESOUT\n\t\tCHAVESOUT)\n\tCHAVESOUTcatch(e)CHAVESIN\n\t\tthis.showError(ASPASErro ao processar a solicitação, entre em contato com o administrador do sistema.ASPAS)\n\tCHAVESOUT\n\t\n\tvar textArea = document.getElementById('MessageBox');\n\ttextArea.scrollTop = textArea.scrollHeight;\nCHAVESOUT\n\nfunction sendMessage()\nCHAVESIN\n\tvar messageBoxText = $(ASPAS#MessageBoxASPAS).val();\n\tvar name = $(ASPAS#CHAVESINCAMPONOMEPAGINAPUBLICACHAVESOUTASPAS).val().split(ASPAS ASPAS)[0];\n\tvar numeroProcesso = $(ASPAS#numeroSolicitacaoASPAS).val();\n\tvar CardId = $(ASPAS#CardIdASPAS).val();\n\tvar data = new Date();\n\tvar dataAtual = ASPAS(ASPAS+(ASPAS0000ASPAS + data.getDate()).slice(-2)+ASPAS/ASPAS+(ASPAS0000ASPAS + data.getMonth()).slice(-2)+ASPAS/ASPAS+data.getFullYear()+ASPAS ASPAS+(ASPAS0000ASPAS + data.getHours()).slice(-2)+ASPAS:ASPAS+(ASPAS0000ASPAS + data.getMinutes()).slice(-2)+ASPAS)ASPAS;\n\t\n\tmessageBoxText += ASPAS\\nASPAS + name + ASPAS ASPAS + dataAtual + ASPAS: ASPAS + $(ASPAS#messageTextASPAS).val();\n\t\n\t$(ASPAS#MessageBoxASPAS).val(messageBoxText);\n\t$(ASPAS#messageTextASPAS).val(ASPASASPAS);\n\t\n\tmessageBoxText = messageBoxText\n\t\n\tlet status = ASPASASPAS;\n\tlet fluighub = new FluigHub();\n\tlet constraints = [];\n\tvar processData = []\n\t\n\tconstraintsList = [CHAVESIN\n        _field: 'numProcess',\n        _initialValue: numeroProcesso,\n        _finalValue: numeroProcesso,\n        _type: 1,\n        _likeSearch: false,\n    CHAVESOUT,CHAVESIN\n        _field: 'cardId',\n        _initialValue: CardId,\n        _finalValue: CardId,\n        _type: 1,\n        _likeSearch: false,\n    CHAVESOUT,CHAVESIN\n        _field: 'mensagem',\n        _initialValue: messageBoxText,\n        _finalValue: messageBoxText,\n        _type: 1,\n        _likeSearch: false,\n    CHAVESOUT]\n  \n\tconst datasetOptions = CHAVESIN\n        name: 'dsChatIP',\n        fields: [],\n        constraints: constraintsList,\n        order: [],\n    CHAVESOUT;\n\tvar that = this;\n\ttryCHAVESIN\n\t\tfluighub.execute(2,'post',JSON.stringify(datasetOptions),function(data)CHAVESIN\n\t\t\tdata = JSON.parse(data.result);\n\t\t\t\n\t\t\tif (data.content.values)CHAVESIN\n\t\t\t\tprocessData = data.content.values\n\t\t\tCHAVESOUT\n\t\tCHAVESOUT)\n\tCHAVESOUTcatch(e)CHAVESIN\n\t\tthis.showError(ASPASErro ao processar a solicitação, entre em contato com o administrador do sistema.ASPAS)\n\tCHAVESOUT\nCHAVESOUT",
+
                 "Parameters": [
+
                     "DATASETFORMULARIO",
+
                     "CAMPONOMEPAGINAPUBLICA"
+
                 ],
+
                 "ParameterType": "NOTREAT"
+
             },
+
             "PosCode": {
+
                 "CodeText": "",
+
                 "Parameters": []
+
             },
+
             "CodeToAddParameter": {
+
                 "Parameters": [
+
                     "DATASETFORMULARIO",
+
                     "CAMPONOMEPAGINAPUBLICA",
+
                     "NOMEEMPRESAINTERNO",
+
                     "SENHAUSUARIOADMIN"
+
                 ],
+
                 "ParameterType": "NOTREAT",
+
                 "Code": "\n###### Java Script para o formulario do processo ######\n\n//Para ser usado na inicialização da pagina ou num momento especifico//\nsetInterval(function()CHAVESIN updateMessage() CHAVESOUT, 3000);\n//////////////////////////////////////////////////////////////////////\n\n\nfunction updateMessage()\nCHAVESIN\n\tvar numeroProcesso = $(ASPAS#numeroSolicitacaoASPAS).val();\n\tvar constraints = [];\n\t\n\tconstraints.push(DatasetFactory.createConstraint(ASPASnumeroSolicitacaoASPAS, numeroProcesso, numeroProcesso, ConstraintType.MUST));\n\t\n    var dataset = DatasetFactory.getDataset(ASPASCHAVESINDATASETFORMULARIOCHAVESOUTASPAS, null, constraints, null);\n    if (dataset != null && dataset.values != undefined && dataset.values.length > 0) CHAVESIN\n        \n    \tvar processData = dataset.values[dataset.values.length-1];\n\t\tvar Message = processData.MessageBox;\n\t\t\n\t\tif($(ASPAS#MessageBoxASPAS).val() != Message)\n\t\tCHAVESIN\n\t\t\t$(ASPAS#MessageBoxASPAS).val(Message);\n\t\t\tFLUIGC.toast(CHAVESIN\n\t\t\t\ttitle: 'Atenção: ',\n\t\t\t\tmessage: ASPASNova mensagem do chat!ASPAS,\n\t\t\t\ttype: 'success'\n\t\t\tCHAVESOUT);\n\t\tCHAVESOUT\n    CHAVESOUT\n    \n    var textArea = document.getElementById('MessageBox');\n    textArea.scrollTop = textArea.scrollHeight;\nCHAVESOUT\n\nfunction sendMessage()\nCHAVESIN\n\tvar messageBoxText = $(ASPAS#MessageBoxASPAS).val();\n\tvar numeroProcesso = $(ASPAS#numeroSolicitacaoASPAS).val();\n\tvar CardIdNumber = $(ASPAS#CardIdNumberASPAS).val();\n\tvar constraints = [];\n\tvar data = new Date();\n\tvar dataAtual = ASPAS(ASPAS+(ASPAS0000ASPAS + data.getDate()).slice(-2)+ASPAS/ASPAS+(ASPAS0000ASPAS + data.getMonth()).slice(-2)+ASPAS/ASPAS+data.getFullYear()+ASPAS ASPAS+(ASPAS0000ASPAS + data.getHours()).slice(-2)+ASPAS:ASPAS+(ASPAS0000ASPAS + data.getMinutes()).slice(-2)+ASPAS)ASPAS;\n\t\n\tmessageBoxText += ASPAS\\nCHAVESINNOMEEMPRESAINTERNOCHAVESOUT ASPAS+dataAtual+ASPAS: ASPAS + $(ASPAS#messageTextASPAS).val();\n\t\n\t$(ASPAS#MessageBoxASPAS).val(messageBoxText);\n\t$(ASPAS#messageTextASPAS).val(ASPASASPAS);\n\t\n\tconstraints.push(DatasetFactory.createConstraint(ASPASnumProcessASPAS, numeroProcesso, numeroProcesso, ConstraintType.MUST));\n\tconstraints.push(DatasetFactory.createConstraint(ASPAScardIdASPAS, CardIdNumber, CardIdNumber, ConstraintType.MUST));\n\tconstraints.push(DatasetFactory.createConstraint(ASPASmensagemASPAS, messageBoxText, messageBoxText, ConstraintType.MUST));\n    \n    var dataset = DatasetFactory.getDataset(ASPASdsChatIPASPAS, null, constraints, null);\n    if (dataset != null && dataset.values != undefined && dataset.values.length > 0) CHAVESIN\n        \n    \tconsole.log(ASPASASPAS);\n    CHAVESOUT\nCHAVESOUT\n\n\n##### Codigo do data set dsChatIP #####\n\nfunction createDataset(fields, constraints, sortFields) CHAVESIN\n\t\n\tvar user = ASPASadminASPAS;\n\tvar password = 'CHAVESINSENHAUSUARIOADMINCHAVESOUT';\n\tvar newDataset = DatasetBuilder.newDataset();\n\tvar numProcess = ASPASASPAS;\n\tvar cardId = ASPASASPAS;\n\tvar mensagem = ASPASASPAS;\n\n\tnewDataset.addColumn(ASPASdocumentIdASPAS);\n\tnewDataset.addColumn(ASPASdocumentDescriptionASPAS);\n\tnewDataset.addColumn(ASPASversionASPAS);\n\tnewDataset.addColumn(ASPASwebServiceMessageASPAS);\n\t\n\ttry CHAVESIN\n\t\tvar servico = ServiceManager.getService(ASPASCardServiceASPAS);\n\t\tvar serviceHelper = servico.getBean();\n\t\tvar service = serviceHelper.instantiate('fluig.ECMCardServiceService');\n\t\tvar request = service.getCardServicePort();\n\t\tvar ObjectFactory = serviceHelper.instantiate('fluig.ObjectFactory');\n\t\t\t\n\t\tif (constraints != null) CHAVESIN\n\t\t\tfor (var i = 0; i < constraints.length; i++) CHAVESIN\n\t\t\t\tif (constraints[i].fieldName == ASPASnumProcessASPAS) CHAVESIN\n\t\t\t\t\tnumProcess = constraints[i].initialValue.toString();     \n\t\t\t\tCHAVESOUTelse if (constraints[i].fieldName == ASPASmensagemASPAS) CHAVESIN     \n\t\t\t\t\tmensagem = constraints[i].initialValue.toString();     \n\t\t\t\tCHAVESOUTelse if (constraints[i].fieldName == ASPAScardIdASPAS) CHAVESIN     \n\t\t\t\t\tcardId = constraints[i].initialValue.toString();     \n\t\t\t\tCHAVESOUT\n\t\t\tCHAVESOUT\n\t\tCHAVESOUT\n\t\t\n\t\tlog.info(ASPAS<<< ALTERACAO DO FORMULARIO ASPAS + cardId + ASPAS-ASPAS + ASPAS-ASPAS+ mensagem);\n\t\tvar cardFieldDtoArray = ObjectFactory.createCardFieldDtoArray();\n\t\t\n\t\t//Seta o historico passado via parametro\n\t\tvar cardFieldDto = ObjectFactory.createCardFieldDto();\n\t\tcardFieldDto.setField(ASPASMessageBoxASPAS);\n\t\tcardFieldDto.setValue(mensagem);\n\t\tcardFieldDtoArray.getItem().add(cardFieldDto);\n\n\t\tvar retorno = request.updateCardData(1,user,password,cardId,cardFieldDtoArray); \n\t\t\n\t\tvar msg = retorno.getItem();\n\t\t\n\t\tvar documentId = msg.get(0).getDocumentId();\n\t\tvar documentDescription = msg.get(0).getDocumentDescription();\n\t\tvar version = msg.get(0).getVersion();\n\t\tvar webServiceMessage = msg.get(0).getWebServiceMessage();\n\t\t\n\t\tlog.info(ASPASdsChatIP - ALTERACAO DE CARD_DATA - ASPAS + ASPAS webServiceMessage: ASPAS + webServiceMessage + ASPAS mensagem: ASPAS + mensagem)\n\t\tnewDataset.addRow(new Array(documentId,documentDescription,version,webServiceMessage));\n\t\t\n\tCHAVESOUTcatch (e) CHAVESIN\n\t\tnewDataset.addRow(new Array('','','',e));\n\t\tthrow(e);\n\tCHAVESOUT\n\treturn newDataset;\nCHAVESOUT"
+
             }
+
         }
+
     },
+
     "4": {
+
         "title": "Consumo DataSet 1",
+
         "Description": "Exemplo de função para consumir um dataset dentro de um formulário do Fluig.",
+
         "Message": "Altere ou adicione as constraints conforme a sua necessidade.",
+
         "CODE": {
+
             "1": {
+
                 "CodeText": "var constraints = [];\n\nconstraints.push(DatasetFactory.createConstraint(ASPASNome da ConstraintASPAS, valor da Constraint, valor da Constraint, ConstraintType.MUST));\nvar dataset = DatasetFactory.getDataset(ASPAS{DATASETNAME}ASPAS, null, constraints, null);  \n\nfor(var i = 0; i < dataset.values.length; i++) \nCHAVESIN   \n    \n    //dataset.values[i]\nCHAVESOUT",
+
                 "Parameters": [
+
                     { "Name": "DATASETNAME", "Description": "Código do Dataset: " }
+
                 ],
+
                 "ParameterType": "NOTREAT",
+
                 "questions": {}
+
             }
+
         }
+
     },
+
     "5": {
+
         "title": "Consumo DataSet 2",
+
         "Description": "Exemplo de função para consumir um dataset dentro de um formulário do Fluig com uma tabela pai x filho.",
+
         "Message": "Altere ou adicione as constraints conforme a sua necessidade.",
+
         "CODE": {
+
             "1": {
+
                 "CodeText": "var constraints = [];\n\nconstraints.push(DatasetFactory.createConstraint(ASPASNome da ConstraintASPAS, valor da Constraint, valor da Constraint, ConstraintType.MUST));\nvar datasetPrincipal = DatasetFactory.getDataset(ASPAS{DATASETNAME}ASPAS, null, constraints, null);  \n\nfor(var i = 0; i < datasetPrincipal.values.length; i++) \nCHAVESIN   \n    \n    var documentId = datasetPrincipal.values[i].documentid;\n    var documentVersion = datasetPrincipal.values[i].version;\n\n    //Cria as constraints para buscar os campos filhos, passando o tablename, número da formulário e versão\n    var c1 = DatasetFactory.createConstraint(ASPAStablenameASPAS, ASPAS{TABLENAME}ASPAS ,ASPAS{TABLENAME}ASPAS, ConstraintType.MUST);\n    var c2 = DatasetFactory.createConstraint(ASPASmetadata#idASPAS, documentId, documentId, ConstraintType.MUST);\n    var c3 = DatasetFactory.createConstraint(ASPASmetadata#versionASPAS, documentVersion, documentVersion, ConstraintType.MUST);\n    var constraintsFilhos = new Array(c1, c2, c3);\n\n    //Busca o dataset\n    var datasetFilhos = DatasetFactory.getDataset(ASPAS{DATASETNAME}ASPAS, null, constraintsFilhos, null);\n\n    for(var j = 0; j < datasetFilhos.values.length; j++)\n    CHAVESIN\n        //datasetFilhos.values[j]\n    CHAVESOUT\nCHAVESOUT",
+
                 "Parameters": [
+
                     { "Name": "DATASETNAME", "Description": "Código do Dataset" },
+
                     { "Name": "TABLENAME", "Description": "Id da Tabela Filho" }
+
                 ],
+
                 "ParameterType": "NOTREAT",
+
                 "questions": {}
+
             }
+
         }
+
     }
+
 }
